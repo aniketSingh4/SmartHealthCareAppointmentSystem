@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reschedule Appointment</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+        input, button { width: 100%; padding: 10px; margin-top: 10px; }
+        button { background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reschedule Appointment</h2>
+
+        <div th:if="${appointment}">
+            <p><strong>Doctor:</strong> <span th:text="${appointment.doctorName}"></span></p>
+            <p><strong>Current Date & Time:</strong> <span th:text="${appointment.appointmentDateTime}"></span></p>
+            
+            <form th:action="@{/reschedule/update}" method="post">
+                <input type="hidden" name="appointmentId" th:value="${appointment.id}">
+                <label for="newDateTime">New Date & Time:</label>
+                <input type="datetime-local" id="newDateTime" name="newDateTime" required>
+                <button type="submit">Confirm Reschedule</button>
+            </form>
+        </div>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Next Visit</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+        button { background-color: #007bff; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Next Appointment</h2>
+
+        <div th:if="${appointment}">
+            <p><strong>Doctor:</strong> <span th:text="${appointment.doctorName}"></span></p>
+            <p><strong>Appointment Date & Time:</strong> <span th:text="${appointment.appointmentDateTime}"></span></p>
+            <button><a href="rescheduleAppointment.html">Reschedule</a></button>
+            <button onclick="cancelAppointment()">Cancel</button>
+        </div>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+    </div>
+
+    <script>
+        function rescheduleAppointment() 
+        {
+            alert("Redirecting to reschedule page...");
+            this.submit() = rescheduleAppointment.html;
+            
+        }
+
+        function cancelAppointment() {
+            alert("Are you sure you want to cancel this appointment?");
+        }
+    </script>
+</body>
+</html>

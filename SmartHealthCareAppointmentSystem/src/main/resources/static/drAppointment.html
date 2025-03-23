@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - Smart Healthcare System</title>
+    <link rel="stylesheet" href="styles6.css">    
+</head>
+<body>
+    <header>
+        <h1 class="fade-in">Book an Appointment</h1>
+        <p class="fade-in delay">Schedule a visit with your preferred doctor</p>
+    </header>
+    
+    <section class="container">
+        <div class="appointment-box slide-in">
+            <h2>Appointment Details</h2>
+            <form class="appointment-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Your Contact Number" required>
+                <select required>
+                    <option value="" disabled selected>Select a Doctor</option>
+                    <option value="dr_smith">Dr. John Smith - Cardiologist</option>
+                    <option value="dr_jones">Dr. Sarah Jones - Neurologist</option>
+                    <option value="dr_lee">Dr. Michael Lee - Pediatrician</option>
+                </select>
+                <input type="date" required>
+                <select required>
+                    <option value="" disabled selected>Select Time Slot</option>
+                    <option value="9am-10am">9:00 AM - 10:00 AM</option>
+                    <option value="11am-12pm">11:00 AM - 12:00 PM</option>
+                    <option value="2pm-3pm">2:00 PM - 3:00 PM</option>
+                    <option value="4pm-5pm">4:00 PM - 5:00 PM</option>
+                </select>
+                <textarea placeholder="Describe Your Symptoms" rows="4"></textarea>
+                <button type="submit">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Smart Healthcare Appointment System | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
