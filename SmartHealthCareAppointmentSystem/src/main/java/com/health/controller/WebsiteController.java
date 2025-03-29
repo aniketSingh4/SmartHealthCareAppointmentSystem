@@ -16,23 +16,43 @@ import com.health.data.repository.DataRepository;
 import com.health.patient.entity.Appointment;
 import com.health.patient.entity.Patient;
 import com.health.patient.service.AppointmentService;
+import com.health.patient.service.PatientService;
 
 @Controller
 public class WebsiteController 
 {
+	@Autowired
+	private DataRepository dataRepository;
+	
+	@Autowired
+    private AppointmentService appointmentService;
+	
+	@Autowired
+	private PatientService patientService;
 	@GetMapping("/login")
 	public String login()
 	{
 		return "login";
 	}
 	
+	//validating user with email and password
+	@PostMapping("/login")
+	public String loginUser(@RequestParam("email") String email,
+			                @RequestParam("password") String password,
+			                Model model)
+	{
+		if(patientService.validateUser(email, password)) {
+			return "redirect:/home";//Redirect to Home page
+		}else {
+			model.addAttribute("errorMessage", "Invalid Email or Password!");
+			return "login";//Stay on login page with error message
+		}
+	}
+	
+	
 	//Code related inserting data into table using register form
 	
-	@Autowired
-	private DataRepository dataRepository;
 	
-	@Autowired
-    private AppointmentService appointmentService;
 	
 	// Show the form
     @GetMapping("/register")
