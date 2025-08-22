@@ -76,7 +76,7 @@ The primary goal of the system is to eliminate manual appointment handling, redu
    5. /doctor/dashboard – Doctor’s dashboard
    6. /patient/dashboard – Patient’s dashboard
 
-# Future Enhancements (Optional):
+# Future Enhancements:
    1. Email/SMS notifications for appointments
    2. Integration with calendar APIs (Google Calendar)
    3. Telemedicine module (video consultations)
